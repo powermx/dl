@@ -6,6 +6,7 @@
     "remote_port": 80,
     "password": [
         "vpspack"
+        "vpspackscript"
     ],
     "log_level": 1,
     "ssl": {
