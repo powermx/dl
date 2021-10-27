@@ -1,0 +1,10 @@
+#!/bin/bash                                               
+SERVICE="stunnel"                                         
+if                                                        
+    pgrep "$SERVICE" >/dev/null                           
+then                                                      
+    echo "$SERVICE en servicio"                           
+    else                                                  
+    echo "$SERVICE detenido, intentando reiniciar"        
+    service stunnel4 restart                              
+fi
