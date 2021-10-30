@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
-mkdir $1
-cd $1
+#!/bin/ bash
+mkdir radio
+cd radio
 wget http://download.nullsoft.com/shoutcast/tools/sc_serv2_linux_x64-latest.tar.gz
 tar -zxvf sc_serv2_linux_x64-latest.tar.gz
 curl -o sc_serv.conf https://raw.githubusercontent.com/powermx/dl/master/sc_serv.conf
