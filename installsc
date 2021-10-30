@@ -3,4 +3,4 @@ mkdir $1
 cd $1
 wget http://download.nullsoft.com/shoutcast/tools/sc_serv2_linux_x64-latest.tar.gz
 tar -zxvf sc_serv2_linux_x64-latest.tar.gz
-wget
+curl -o sc_serv.conf https://raw.githubusercontent.com/powermx/dl/master/sc_serv.conf
