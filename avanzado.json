@@ -1,0 +1,37 @@
+{
+  "listen": ":36712", // Listen address
+  "protocol": "faketcp", // Blank, "udp", "wechat-video", "faketcp"
+  "acme": {
+    "domains": [
+      "your.domain.com",
+      "another.domain.net"
+    ], // Domains for the ACME cert
+    "email": "hacker@gmail.com", // Registration email, optional but recommended
+    "disable_http": false, // Disable HTTP challenges
+    "disable_tlsalpn": false, // Disable TLS-ALPN challenges
+    "alt_http_port": 8080, // Alternate port for HTTP challenges
+    "alt_tlsalpn_port": 4433 // Alternate port for TLS-ALPN challenges
+  },
+  "cert": "/home/ubuntu/my_cert.crt", // Cert file, mutually exclusive with the ACME options above
+  "key": "/home/ubuntu/my_key.crt", // Key file, mutually exclusive with the ACME options above
+  "up_mbps": 100, // Max upload Mbps per client
+  "down_mbps": 100, // Max download Mbps per client
+  "disable_udp": false, // Disable UDP support
+  "acl": "my_list.acl", // See ACL below
+  "mmdb": "GeoLite2-Country.mmdb", // MaxMind database for ACL country lookups
+  "obfs": "AMOGUS", // Obfuscation password
+  "auth": { // Authentication
+    "mode": "password", // Mode, supports "password" "none" and "external" for now
+    "config": {
+      "password": "yubiyubi"
+    }
+  },
+  "alpn": "ayaya", // QUIC TLS ALPN
+  "prometheus_listen": ":8080", // Prometheus HTTP metrics server listen address (at /metrics)
+  "recv_window_conn": 15728640, // QUIC stream receive window
+  "recv_window_client": 67108864, // QUIC connection receive window
+  "max_conn_client": 4096, // Max concurrent connections per client
+  "disable_mtu_discovery": false, // Disable Path MTU Discovery (RFC 8899)
+  "ipv6_only": false, // Only resolve domains to IPv6 address
+  "resolver": "1.1.1.1:53" // DNS resolver address
+}
