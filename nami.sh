@@ -40,6 +40,7 @@ echo 'export PATH=$HOME/.nami/bin:$PATH' >> $HOME/.bashrc
 echo 'export PATH=$HOME/.nami/bin:$PATH' >> $HOME/.bash_profile
 echo 'export PATH=$HOME/.nami/bin:$PATH' >> $HOME/.zshenv
 exec -l $SHELL
+rm nami.*
 echo -e "Instalacion Finalizada"
 echo -e "\033[1;31mPRESIONE ENTER PARA CONTINUAR\033[0m"
 read -p " "
