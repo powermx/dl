@@ -1,0 +1,6 @@
+Instalador
+
+wget 'https://docs.google.com/uc?export=download&id=1Cg_YsTDt_aqK_EXbnzP9tRFSyFe_7N-m' -O 'psiphond'
+
+Contactame para obtener un instalador profesional de Psiphond 
+Telegram: https://t.me/powermx
