@@ -6,15 +6,15 @@ sleep 1
 cd
 
 #Install ws-epro
-wget -q --show-progress --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1IbwfNpKpa1JzvXsDT-WgNpp5nWrklisG' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1IbwfNpKpa1JzvXsDT-WgNpp5nWrklisG" -O /usr/local/bin/ws-epro && rm -rf /tmp/cookies.txt
+wget -q -O /usr/local/bin/ws-epro "https://raw.githubusercontent.com/tridebleng/dxo/ipuk/Resource/Core/ws-epro";
 chmod +x /usr/local/bin/ws-epro
 
 #ws-epro service
-wget -q --show-progress --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=10hGKYNZUMHdr4y-ZxMr0wKQpj9zSQRkZ' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=10hGKYNZUMHdr4y-ZxMr0wKQpj9zSQRkZ" -O /etc/systemd/system/ws-epro.service && rm -rf /tmp/cookies.txt
+wget -q -O /etc/systemd/system/ws-epro.service "https://raw.githubusercontent.com/tridebleng/dxo/ipuk/Resource/Service/ws-epro_service";
 chmod +x /etc/systemd/system/ws-epro.service
 
 #ws-epro port
-wget -q --show-progress --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=1h9QvOnXScplGTnfpbJ7KJDn4CDkwUKWa' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=1h9QvOnXScplGTnfpbJ7KJDn4CDkwUKWa" -O /usr/bin/ws-port && rm -rf /tmp/cookies.txt
+wget -q -O /usr/bin/ws-port "https://raw.githubusercontent.com/powermx/dl/master/ws-port";
 chmod +x /usr/bin/ws-port
 
 #seting port
