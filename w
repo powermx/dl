@@ -49,7 +49,6 @@ systemctl start ws-epro
 
 echo "CONFIGURE SU SERVIDOR WEBSOCKET PRO..."
 sleep 0.3
-clear
 LP='\033[1;35m'
 NC='\033[0m' # No Color
 echo -e "${LP}"
@@ -76,8 +75,5 @@ echo    ""
 echo    "GET / HTTP/1.1[crlf]Host: Dominio[crlf]Upgrade: websocket[crlf][crlf]"
 echo    "---------------------------------------"
 echo -e "${NC}"
-rm -rf install-ws && cat /dev/null > ~/.bash_history && history -c
-echo -ne "\n\033[1;31mENTER \033[1;33mpara entrar al \033[1;32mVpsPack\033[0m"; read
-   vpspack
-   
+rm -rf install-ws && cat /dev/null > ~/.bash_history && history -c   
    fi
