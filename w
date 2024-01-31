@@ -10,7 +10,7 @@ wget -q -O /usr/local/bin/ws-epro "https://raw.githubusercontent.com/tridebleng/
 chmod +x /usr/local/bin/ws-epro
 
 #ws-epro service
-wget -q -O /etc/systemd/system/ws-epro.service "https://raw.githubusercontent.com/tridebleng/dxo/ipuk/Resource/Service/ws-epro_service";
+wget -q -O /etc/systemd/system/ws-epro.service "https://raw.githubusercontent.com/powermx/dl/master/ws-epro.service";
 chmod +x /etc/systemd/system/ws-epro.service
 
 #ws-epro port
