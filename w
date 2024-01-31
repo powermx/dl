@@ -17,8 +17,7 @@ chmod +x /etc/systemd/system/ws-epro.service
 wget -q -O /usr/bin/ws-port "https://raw.githubusercontent.com/powermx/dl/master/ws-port";
 chmod +x /usr/bin/ws-port
 
-#seting port
-clear
+#setting port
 echo SELECCIONE PUERTOS
 sleep 1
 read -p "PUERTO LOCAL : " openssh
