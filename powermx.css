@@ -1,0 +1,21 @@
+/* Estilos para el apartado de códigos */
+.code-section {
+    background-color: #111111;
+    color: #FFFFFF;
+    border-radius: 10px; /* Ajusta el valor según lo desees */
+    padding: 20px; /* Ajusta el espaciado interno según lo desees */
+}
+
+/* Estilos para los enlaces dentro del apartado de códigos */
+.code-section a {
+    color: #C70039;
+}
+
+/* Estilos para los bordes de los elementos */
+.code-section img,
+.code-section iframe,
+.code-section pre,
+.code-section blockquote,
+.code-section table {
+    border-radius: 5px; /* Ajusta el valor según lo desees */
+}
