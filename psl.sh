@@ -349,17 +349,8 @@ iptables -I INPUT -p tcp --dport 443 -j ACCEPT
 echo -e "ps x | grep 'pythonwe' | grep -v 'grep' || screen -dmS pythonwe python proxy.py -p 80" >> /etc/autostart
 
 echo
-echo -e " \033[1;37m  AHORA HAGA LO SIGUENTE "
-echo -e " \033[1;37mPARA CREAR UN USUARIO ESCRIBA :CREARUSER "
-echo -e " \033[1;37mPARA REMOVE UN USUARIO ESCRIBA :REMOUSER "
-echo
-echo
-echo '
-echo
-read -p "Usuario :" name
-read -p "Contraseña :" pass
-useradd -M -s /bin/false $name
-(echo $pass; echo $pass)|passwd $name 2>/dev/null' > /bin/CREARUSER &&chmod +x /bin/CREARUSER
-echo '
-echo
-read -p "Escriba su usuario que desa remover :" user
+echo -e " \033[1;37m  STUNNEL + PAYLOAD INSTALADO "
+echo -e " "
+echo -e "\033[1;31mPRESIONE ENTER PARA CONTINUAR\033[0m"
+read -p " "
+vpspack
