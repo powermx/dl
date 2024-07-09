@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 fun_bar () {
           comando[0]="$1"
           comando[1]="$2"
@@ -11,7 +12,7 @@ fun_bar () {
           ) > /dev/null 2>&1 &
           tput civis
 		  echo -e "\033[1;31m---------------------------------------------------\033[1;37m"
-          echo -ne "${col7}    AGUARDE..\033[1;35m["
+          echo -ne "${col7}    ESPERE..\033[1;35m["
           while true; do
           for((i=0; i<18; i++)); do
           echo -ne "\033[1;34m#"
@@ -22,9 +23,9 @@ fun_bar () {
          sleep 1s
          tput cuu1
          tput dl1
-         echo -ne "\033[1;37m    AGUARDE..\033[1;35m["
+         echo -ne "\033[1;37m    ESPERE..\033[1;35m["
          done
-         echo -e "\033[1;35m]\033[1;37m -\033[1;32m INSTALADO \033[1;37m"
+         echo -e "\033[1;35m]\033[1;37m -\033[1;32m INSTALADO !\033[1;37m"
          tput cnorm
 		 echo -e "\033[1;31m---------------------------------------------------\033[1;37m"
         }
@@ -32,34 +33,33 @@ fun_bar () {
 
 clear&&clear
 echo -e "\033[1;31m———————————————————————————————————————————————————\033[1;37m"
-echo -e "\033[1;32m              WEBSOCKET SSH "
+echo -e "\033[1;32m            PAYLOAD + SSL | VsPack Mod "
 echo -e "\033[1;31m———————————————————————————————————————————————————\033[1;37m"
-echo -e "\033[1;37m      WEBSOCKET SSH USARÁ A PORTA 80 e 443"
+echo -e "\033[1;36m               SCRIPT AUTOCONFIGURACION "
+echo -e "\033[1;31m———————————————————————————————————————————————————\033[1;37m"
+echo -e "\033[1;37mRequiere tener el puerto libre ,80 y el 443"
 echo
-echo -e "\033[1;33m                 INSTALANDO SSL... "
+echo -e "\033[1;33m INSTALADO SSL.. "
 inst_ssl () {
-
+pkill -f stunnel4
+pkill -f stunnel
+pkill -f 443
+apt-get purge stunnel4 -y
+apt-get purge stunnel -y
 apt-get install stunnel4 -y
-echo -e "client = no\n[SSL]\ncert = /etc/stunnel/stunnel.pem\naccept = 443 \nconnect = 127.0.0.1:80" > /etc/stunnel/stunnel.conf
-openssl genrsa -out stunnel.key 2048 > /dev/null 2>&1
-(echo "" ; echo "" ; echo "" ; echo "" ; echo "" ; echo "" ; echo "@cloudflare" )|openssl req -new -key stunnel.key -x509 -days 1000 -out stunnel.crt 
-cat stunnel.crt stunnel.key > stunnel.pem 
-mv stunnel.pem /etc/stunnel/
+apt-get install stunnel -y
+pt=$(netstat -nplt |grep 'sshd' | awk -F ":" NR==1{'print $2'} | cut -d " " -f 1)
+echo -e "cert = /etc/stunnel/stunnel.pem\nclient = no\nsocket = a:SO_REUSEADDR=1\nsocket = l:TCP_NODELAY=1\nsocket = r:TCP_NODELAY=1\n\n[stunnel]\nconnect = 127.0.0.1:80\naccept = 443" > /etc/stunnel/stunnel.conf
+openssl genrsa -out key.pem 2048 > /dev/null 2>&1
+(echo br; echo br; echo uss; echo speed; echo pnl; echo powermx; echo @powermx)|openssl req -new -x509 -key key.pem -out cert.pem -days 1095 > /dev/null 2>&1
+cat key.pem cert.pem >> /etc/stunnel/stunnel.pem
 sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
-service stunnel4 restart 
-rm -rf /etc/ger-frm/stunnel.crt 
-rm -rf /etc/ger-frm/stunnel.key
-rm -rf /root/stunnel.crt
-rm -rf /root/stunnel.key
-
+service stunnel4 restart
+service stunnel restart
+service stunnel4 start
 }
 fun_bar 'inst_ssl'
-echo -e "\033[1;33m                 CONFIGURANDO SSL.. "
-fun_bar 'inst_ssl'
-read -p "  STATUS DE CONEXÃO :" msgbanner
-[[ "$msgbanner" = "" ]]&& msgbanner="SSL + Pay"
-echo 
-echo -e "\033[1;33m                 CONFIGURANDO PYTHON... "
+echo -e "\033[1;33m CONFIGURANDO PYTHON.. "
 inst_py () {
 
 pkill -f 80
@@ -74,15 +74,15 @@ import socket, threading, thread, select, signal, sys, time, getopt
 
 # CONFIG
 LISTENING_ADDR = '0.0.0.0'
-LISTENING_PORT = 1080
+LISTENING_PORT = 80
 PASS = ''
 
 # CONST
 BUFLEN = 4096 * 4
 TIMEOUT = 60
-DEFAULT_HOST = "127.0.0.1:$pt"
-RESPONSE = 'HTTP/1.1 101 $msgbanner \r\n\r\n'
-
+DEFAULT_HOST = "127.0.0.1:22"
+RESPONSE = 'HTTP/1.1 101 Switching Protocols! \r\n\r\n'
+ 
 class Server(threading.Thread):
     def __init__(self, host, port):
         threading.Thread.__init__(self)
@@ -319,9 +319,9 @@ def main(host=LISTENING_ADDR, port=LISTENING_PORT):
     print "\n ==============================\n"
     print "\n         PYTHON PROXY          \n"
     print "\n ==============================\n"
-    print "executando ip: " + LISTENING_ADDR
-    print "porta em execução: " + str(LISTENING_PORT) + "\n"
-    print "Iniciado agora feche o terminal\n"
+    print "corriendo ip: " + LISTENING_ADDR
+    print "corriendo port: " + str(LISTENING_PORT) + "\n"
+    print "Se ha Iniciado Por Favor Cierre el Terminal\n"
     
     server = Server(LISTENING_ADDR, LISTENING_PORT)
     server.start()
@@ -330,7 +330,7 @@ def main(host=LISTENING_ADDR, port=LISTENING_PORT):
         try:
             time.sleep(2)
         except KeyboardInterrupt:
-            print 'Parando...'
+            print 'Stopping...'
             server.close()
             break
     
@@ -343,8 +343,23 @@ screen -dmS pythonwe python proxy.py -p 80&
 
 }
 fun_bar 'inst_py'
-rm -rf proxy.py
-echo -e "                 INSTALAÇÃO CONCLUÍDA "
+iptables -I INPUT -p tcp --dport 80 -j ACCEPT
+iptables -I INPUT -p tcp --dport 443 -j ACCEPT
 
-echo 
+echo -e "ps x | grep 'pythonwe' | grep -v 'grep' || screen -dmS pythonwe python proxy.py -p 80" >> /etc/autostart
 
+echo
+echo -e " \033[1;37m  AHORA HAGA LO SIGUENTE "
+echo -e " \033[1;37mPARA CREAR UN USUARIO ESCRIBA :CREARUSER "
+echo -e " \033[1;37mPARA REMOVE UN USUARIO ESCRIBA :REMOUSER "
+echo
+echo
+echo '
+echo
+read -p "Usuario :" name
+read -p "Contraseña :" pass
+useradd -M -s /bin/false $name
+(echo $pass; echo $pass)|passwd $name 2>/dev/null' > /bin/CREARUSER &&chmod +x /bin/CREARUSER
+echo '
+echo
+read -p "Escriba su usuario que desa remover :" user
