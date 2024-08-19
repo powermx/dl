@@ -3,8 +3,8 @@
 clear
 echo setting port ws-epro
 sleep 1
-read -p "Port openssh : " openssh
-read -p "Port wsOpenssh : " wsopenssh
+read -p "Port SSH : " openssh
+read -p "Port WS : " wsopenssh
 
 echo "Procesing to server..."
 sleep 0.5
