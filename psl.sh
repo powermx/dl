@@ -353,4 +353,3 @@ echo -e " \033[1;37m  STUNNEL + PAYLOAD INSTALADO "
 echo -e " "
 echo -e "\033[1;31mPRESIONE ENTER PARA CONTINUAR\033[0m"
 read -p " "
-vpspack
