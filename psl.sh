@@ -46,7 +46,7 @@ service stunnel4 restart > /dev/null 2>&1
 
 echo -e "\033[1;33m CONFIGURANDO PYTHON... "
 
-portkiller 80
+portkiller 80 > /dev/null 2>&1
 
 pt=$(netstat -nplt |grep 'sshd' | awk -F ":" NR==1{'print $2'} | cut -d " " -f 1)
 
