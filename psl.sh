@@ -9,20 +9,14 @@ echo -e "\033[1;31m————————————————————�
 echo -e "\033[1;37mRequiere tener el puerto libre ,80 y el 443"
 echo
 echo -e "\033[1;33m INSTALANDO SSL... "
-
-# Detener procesos y limpiar sin mostrar nada
 pkill -f stunnel4 > /dev/null 2>&1
 pkill -f stunnel > /dev/null 2>&1
 pkill -f 443 > /dev/null 2>&1
-
-# Desinstalar y reinstalar sin mostrar salida
 apt-get remove -y stunnel4 > /dev/null 2>&1
 apt-get purge -y stunnel4 > /dev/null 2>&1
 apt-get purge -y stunnel > /dev/null 2>&1
 apt-get install -y stunnel4 > /dev/null 2>&1
 apt-get install -y stunnel > /dev/null 2>&1
-
-# Configurar stunnel
 rm -f /etc/stunnel/stunnel.conf
 cat << EOF > /etc/stunnel/stunnel.conf
 client = no
