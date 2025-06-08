@@ -46,7 +46,7 @@ service stunnel4 restart > /dev/null 2>&1
 
 echo -e "\033[1;33m CONFIGURANDO PYTHON... "
 
-portkiller 80 > /dev/null 2>&1
+portkiller 80
 
 pt=$(netstat -nplt |grep 'sshd' | awk -F ":" NR==1{'print $2'} | cut -d " " -f 1)
 
@@ -313,14 +313,7 @@ EOF
 iptables -I INPUT -p tcp --dport 80 -j ACCEPT
 iptables -I INPUT -p tcp --dport 443 -j ACCEPT
 
-echo -e "ps x | grep 'pythonwe' | grep -v 'grep' || screen -dmS pythonwe python proxy.py -p 80" >> /etc/autostart
-
-screen -dmS pythonwe python3 proxy.py -p 80&
-
-
-iptables -I INPUT -p tcp --dport 80 -j ACCEPT
-iptables -I INPUT -p tcp --dport 443 -j ACCEPT
-
+screen -dmS pythonwe python3 proxy.py -p 80
 
 echo
 echo -e " \033[1;37m  STUNNEL + PAYLOAD INSTALADO "
