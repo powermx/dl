@@ -309,9 +309,14 @@ if __name__ == '__main__':
 
 EOF
 
+echo -e "ps x | grep 'pythonwe' | grep -v 'grep' || screen -dmS pythonwe python proxy.py -p 80" >> /etc/autostart
+
+screen -dmS pythonwe python3 proxy.py -p 80&
+
 
 iptables -I INPUT -p tcp --dport 80 -j ACCEPT
 iptables -I INPUT -p tcp --dport 443 -j ACCEPT
+
 
 screen -dmS pythonwe python3 proxy.py -p 80
 
