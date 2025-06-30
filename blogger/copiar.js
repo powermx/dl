@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll('.codigo').forEach(function (div) {
-    // No agregar botón si ya existe
     if (div.querySelector('.copy-btn')) return;
 
     const btn = document.createElement('button');
@@ -18,9 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
 
     btn.addEventListener('click', function () {
-      // Copiar solo el texto sin el botón
       const text = Array.from(div.childNodes)
-        .filter(n => n.nodeType === Node.ELEMENT_NODE && !n.classList.contains('copy-btn'))
+        .filter(n => n.nodeType === 1 && !n.classList.contains('copy-btn'))
         .map(n => n.innerText.trim())
         .join('\n');
 
@@ -30,10 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
       textarea.select();
       document.execCommand('copy');
       document.body.removeChild(textarea);
+
       alert("Texto copiado al portapapeles");
     });
 
-    btn.classList.add('copy-btn');
     div.appendChild(btn);
   });
 });
