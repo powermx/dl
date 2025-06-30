@@ -1,11 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll('.copy').forEach(function (div) {
-    const btn = div.querySelector('.copy-btn');
-    const code = div.querySelector('pre code');
+    // No añadir botón si ya existe
+    if (div.querySelector('.copy-btn')) return;
+
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.innerText = 'Copiar';
+
+    const code = div.querySelector('pre code') || div.querySelector('code') || div;
 
     btn.addEventListener('click', function (e) {
       e.preventDefault();
-
       const text = code.innerText;
 
       const textarea = document.createElement("textarea");
@@ -17,5 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       alert("Texto copiado al portapapeles");
     });
+
+    div.appendChild(btn);
   });
 });
