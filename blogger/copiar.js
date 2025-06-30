@@ -1,10 +1,9 @@
-document.addEventListener("DOMContentLoaded", function () {
+function initCopyButtons() {
   document.querySelectorAll('.codigo').forEach(function (div) {
-    if (div.querySelector('.copy-btn')) return;
+    if (div.querySelector('.copy-btn')) return; // evitar duplicados
 
     const btn = document.createElement('button');
     btn.className = 'copy-btn';
-
     btn.innerHTML = `
       <svg height="20" width="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 0h24v24H0z" fill="none"/>
@@ -35,4 +34,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     div.appendChild(btn);
   });
-});
+}
+
+// Esperar hasta que .codigo esté disponible
+const interval = setInterval(() => {
+  if (document.querySelector('.codigo')) {
+    clearInterval(interval);
+    initCopyButtons();
+  }
+}, 300);
