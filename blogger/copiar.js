@@ -1,6 +1,6 @@
 function initCopyButtons() {
   document.querySelectorAll('.codigo').forEach(function (div) {
-    if (div.querySelector('.copy-btn')) return; // evitar duplicados
+    if (div.querySelector('.copy-btn')) return;
 
     const btn = document.createElement('button');
     btn.className = 'copy-btn';
@@ -36,7 +36,6 @@ function initCopyButtons() {
   });
 }
 
-// Esperar hasta que .codigo esté disponible
 const interval = setInterval(() => {
   if (document.querySelector('.codigo')) {
     clearInterval(interval);
