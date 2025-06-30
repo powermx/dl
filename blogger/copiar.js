@@ -5,9 +5,10 @@ document.addEventListener("DOMContentLoaded", function () {
     btn.innerText = 'Copiar';
 
     btn.addEventListener('click', function (e) {
-      e.stopPropagation(); 
+      e.stopPropagation(); // prevenir burbujas
       e.preventDefault();
 
+      // Crear un texto solo con los nodos que no son el botón
       let text = '';
       div.childNodes.forEach(node => {
         if (node !== btn) {
