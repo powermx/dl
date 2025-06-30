@@ -5,23 +5,17 @@ document.addEventListener("DOMContentLoaded", function () {
     btn.innerText = 'Copiar';
 
     btn.addEventListener('click', function (e) {
-      e.stopPropagation(); // prevenir burbujas
+      e.stopPropagation();
       e.preventDefault();
 
-      // Crear un texto solo con los nodos que no son el botón
-      let text = '';
-      div.childNodes.forEach(node => {
-        if (node !== btn) {
-          if (node.nodeType === Node.TEXT_NODE) {
-            text += node.textContent;
-          } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName.toLowerCase() !== 'button') {
-            text += node.innerText + '\n';
-          }
-        }
-      });
+      // Obtener solo los elementos que NO sean el botón
+      const lines = Array.from(div.children)
+        .filter(child => child.tagName !== 'BUTTON')
+        .map(child => child.innerText.trim())
+        .join('\n');
 
       const textarea = document.createElement("textarea");
-      textarea.value = text.trim();
+      textarea.value = lines;
       document.body.appendChild(textarea);
       textarea.select();
       document.execCommand("copy");
