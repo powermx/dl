@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll('.copy').forEach(function (div) {
     const btn = document.createElement('button');
     btn.className = 'copy-btn';
-    btn.innerText = ' ';
+    btn.innerText = '';
 
     btn.onclick = function () {
       const cloned = div.cloneNode(true);
