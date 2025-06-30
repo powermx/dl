@@ -1,4 +1,4 @@
-.codigo-copiable {
+.codigo {
   background-color: #111111;
   color: white;
   padding: 10px;
@@ -8,7 +8,7 @@
   font-family: monospace;
 }
 
-.codigo-copiable button.copy-btn {
+.codigo button.copy-btn {
   background-color: #c70039;
   color: white;
   border: none;
