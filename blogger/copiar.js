@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll('.codigo-copiable').forEach(function (div) {
+  document.querySelectorAll('.codigo').forEach(function (div) {
     const btn = document.createElement('button');
     btn.className = 'copy-btn';
     btn.innerText = ' - ';
