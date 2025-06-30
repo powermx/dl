@@ -1,12 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll('.codigo').forEach(function (div) {
-    // Evita duplicar botones
     if (div.querySelector('.copy-btn')) return;
 
     const btn = document.createElement('button');
     btn.className = 'copy-btn';
 
-    // Solo ícono, sin texto visible
     btn.innerHTML = `
       <svg height="20" width="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
         <path d="M0 0h24v24H0z" fill="none"/>
@@ -19,11 +17,11 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
 
     btn.onclick = function () {
-      // Copia solo el texto de los elementos hijos
-      const text = Array.from(div.childNodes)
-        .filter(n => n.nodeType === 1 && n.tagName !== 'BUTTON')
-        .map(n => n.innerText.trim())
-        .join('\n');
+      const cloned = div.cloneNode(true);
+      const btnInClone = cloned.querySelector('button');
+      if (btnInClone) btnInClone.remove();
+
+      const text = cloned.innerText.trim();
 
       const textarea = document.createElement("textarea");
       textarea.value = text;
