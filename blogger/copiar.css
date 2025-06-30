@@ -1,21 +1,18 @@
-.copy {
-  background-color: #111111;
-  color: white;
-  padding: 10px;
-  border-radius: 10px;
-  line-height: 1.5;
-  position: relative;
-  font-family: monospace;
-}
-
-.copy button.copy-btn {
+.copy-btn {
+  all: unset; /* elimina todos los estilos heredados */
   background-color: #c70039;
-  color: white;
-  border: none;
   border-radius: 5px;
+  color: white;
+  cursor: pointer;
   padding: 5px;
   position: absolute;
   right: 10px;
   top: 10px;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.copy-btn svg {
+  pointer-events: none;
 }
