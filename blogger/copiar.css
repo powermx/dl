@@ -8,14 +8,14 @@
   font-family: monospace;
 }
 
-.copy-btn {
+.codigo .copy-btn {
   background-color: #c70039;
-  border-radius: 5px;
   border: none;
+  border-radius: 5px;
   color: white;
   cursor: pointer;
   padding: 5px;
   position: absolute;
-  right: 10px;
   top: 10px;
+  right: 10px;
 }
