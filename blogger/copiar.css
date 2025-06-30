@@ -1,18 +1,21 @@
-.codigo-btn {
-  all: unset; /* elimina todos los estilos heredados */
-  background-color: #c70039;
-  border-radius: 5px;
+.codigo-copiable {
+  background-color: #111111;
   color: white;
-  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  line-height: 1.5;
+  position: relative;
+  font-family: monospace;
+}
+
+.codigo-copiable button.copy-btn {
+  background-color: #c70039;
+  color: white;
+  border: none;
+  border-radius: 5px;
   padding: 5px;
   position: absolute;
   right: 10px;
   top: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.codigo-btn svg {
-  pointer-events: none;
+  cursor: pointer;
 }
