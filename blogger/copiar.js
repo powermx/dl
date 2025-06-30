@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-  document.querySelectorAll('.copy').forEach(function (div) {
+  document.querySelectorAll('.codigo').forEach(function (div) {
     // Evita duplicar el botón
-    if (div.querySelector('.copy-btn')) return;
+    if (div.querySelector('.codigo-btn')) return;
 
     const btn = document.createElement('button');
-    btn.className = 'copy-btn';
+    btn.className = 'codigo-btn';
 
     // Solo ícono, sin texto
     btn.innerHTML = `
