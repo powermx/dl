@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll('.codigo-copiable').forEach(function (div) {
     const btn = document.createElement('button');
     btn.className = 'copy-btn';
-    btn.innerText = 'Copiar';
+    btn.innerText = ' - ';
     btn.onclick = function () {
       const text = div.innerText;
       const textarea = document.createElement("textarea");
