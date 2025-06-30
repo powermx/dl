@@ -1,4 +1,4 @@
-.copy-btn {
+.codigo-btn {
   all: unset; /* elimina todos los estilos heredados */
   background-color: #c70039;
   border-radius: 5px;
@@ -13,6 +13,6 @@
   justify-content: center;
 }
 
-.copy-btn svg {
+.codigo-btn svg {
   pointer-events: none;
 }
