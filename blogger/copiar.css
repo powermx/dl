@@ -19,3 +19,7 @@
   top: 10px;
   cursor: pointer;
 }
+.copy-btn {
+  font-size: 0;
+  line-height: 0;
+}
