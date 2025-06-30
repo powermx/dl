@@ -1,25 +1,21 @@
-.copy {
+.codigo {
   background-color: #111111;
-  color: white;
-  padding: 10px;
   border-radius: 10px;
+  color: white;
+  line-height: 1.5;
+  padding: 10px;
   position: relative;
   font-family: monospace;
 }
 
-.copy pre {
-  margin: 0;
-  white-space: pre-wrap;
-}
-
 .copy-btn {
   background-color: #c70039;
-  color: white;
-  border: none;
   border-radius: 5px;
+  border: none;
+  color: white;
+  cursor: pointer;
   padding: 5px;
   position: absolute;
-  top: 10px;
   right: 10px;
-  cursor: pointer;
+  top: 10px;
 }
