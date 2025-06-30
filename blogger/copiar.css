@@ -1,0 +1,21 @@
+.codigo-copiable {
+  background-color: #111111;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  line-height: 1.5;
+  position: relative;
+  font-family: monospace;
+}
+
+.codigo-copiable button.copy-btn {
+  background-color: #c70039;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
